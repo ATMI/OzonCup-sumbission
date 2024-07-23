@@ -42,6 +42,6 @@ git push
 Несмотря на то, что проверка решения выполняется на удаленном сервере, вы можете проверить запуск инференса и локально. Если вы заранее поделили train датасет на условную обучающую и проверочную выборки для локально разработки, вы можете положить соответствующие изображения в папку `data/test` и запустить инференс локально.
 ##### Запустите инференс make submission py
 ```shell
-docker run -it --network none --shm-size 2G --name rus-art -v ./data:/app/data rus-art python make_submission.py
+docker run -it --network none --shm-size 2G --name moderatsiya_kartochek -v ./data:/app/data moderatsiya_kartochek python make_submission.py
 ```
 По итогу выполнения команды, файл с решением `submission.csv` появится в папке `data`. Проверьте его на правильность структуры. При желании, можете запустить расчет метрики на нем. Пример файла с расчетом метрики вы можете найти в корне репозитория.
