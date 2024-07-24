@@ -5,7 +5,7 @@ from PIL import Image
 from baseline import init_model
 
 MODEL_WEIGHTS = "baseline.pth"
-TEST_IMAGES_DIR = "/home/spaceman/Documents/e_cup_ozon/template_5706/data/test/combined/"
+TEST_IMAGES_DIR = "./data/test/"
 SUBMISSION_PATH = "./data/submission.csv"
 
 if __name__ == "__main__":
