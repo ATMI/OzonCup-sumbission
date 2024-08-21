@@ -1,7 +1,8 @@
 import os
-import cv2
 import numpy as np
 import onnxruntime as ort
+
+from PIL import Image
 
 TEST_IMAGES_DIR = "./data/test/"
 SUBMISSION_PATH = "./data/submission.csv"
@@ -9,11 +10,11 @@ MODEL_PATH = "./model.ort"
 
 
 def load_image(path):
-	image = cv2.imread(path)
-	image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-	image = cv2.resize(image, (224, 224), interpolation=cv2.INTER_LINEAR)
+	image = Image.open(path)
+	image = image.convert("RGB")
+	image = image.resize((224, 224), Image.BILINEAR)
 
-	image = image.astype(np.float32)
+	image = np.array(image, dtype=np.float32)
 	image = image / 255
 	mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 	std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
