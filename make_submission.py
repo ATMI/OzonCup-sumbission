@@ -6,7 +6,7 @@ from PIL import Image
 
 TEST_IMAGES_DIR = "./data/test/"
 SUBMISSION_PATH = "./data/submission.csv"
-MODEL_PATH = "./model.ort"
+MODEL_PATH = "./model.onnx"
 
 
 def load_image(path):
@@ -35,13 +35,35 @@ if __name__ == "__main__":
 	output_name = session.get_outputs()[0].name
 
 	for image_name in all_image_names:
-		image_path = os.path.join(TEST_IMAGES_DIR, image_name)
-		image = load_image(image_path)
+		image = None
+		output = None
+		pred = None
 
-		output = session.run([output_name], {input_name: image})[0]
-		output = output[0].item()
-		pred = int(output > 0.5)
-		all_preds.append(pred)
+		try:
+			image_path = os.path.join(TEST_IMAGES_DIR, image_name)
+			image = load_image(image_path)
+
+			output = session.run([output_name], {input_name: image})[0]
+			output = output[0].item()
+			pred = int(output > 0.5)
+			all_preds.append(pred)
+		except Exception as e:
+			image_shape = None
+			image_min = None
+			image_max = None
+
+			try:
+				image_shape = image.shape
+				image_min = image.min()
+				image_max = image.max()
+			except:
+				pass
+
+			raise RuntimeError(
+				f"\n[image shape; min; max] {image_shape}; {image_min}; {image_max}"
+				f"\n[output] {output}"
+				f"\n[error] {e}"
+			)
 
 	with open(SUBMISSION_PATH, "w") as f:
 		f.write("image_name\tlabel_id\n")
