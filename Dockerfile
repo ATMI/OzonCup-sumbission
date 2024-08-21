@@ -10,5 +10,4 @@ COPY . /app
 RUN python3 -m venv venv && \
     source venv/bin/activate && \
     pip install --no-cache-dir -r requirements.txt && \
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu && \
-    chmod +x /app/entrypoint.sh /app/baseline.py /app/make_submission.py
+    chmod +x /app/entrypoint.sh /app/make_submission.py
