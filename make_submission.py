@@ -1,40 +1,48 @@
-import torch
-import torchvision.transforms as transforms
 import os
-from PIL import Image
-from baseline import init_model
+import cv2
+import numpy as np
+import onnxruntime as ort
 
-MODEL_WEIGHTS = "baseline.pth"
 TEST_IMAGES_DIR = "./data/test/"
 SUBMISSION_PATH = "./data/submission.csv"
+MODEL_PATH = "./model.ort"
+
+
+def load_image(path):
+	image = cv2.imread(path)
+	image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+	image = cv2.resize(image, (224, 224), interpolation=cv2.INTER_LINEAR)
+
+	image = image.astype(np.float32)
+	image = image / 255
+	mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
+	std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
+	image = (image - mean) / std
+
+	image = image.transpose(2, 0, 1)
+	image = np.expand_dims(image, axis=0)
+
+	return image
+
 
 if __name__ == "__main__":
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = init_model(device)
-    model.load_state_dict(torch.load(MODEL_WEIGHTS))
-    model.eval()
+	all_image_names = os.listdir(TEST_IMAGES_DIR)
+	all_preds = []
 
-    img_size = 224
-    transform = transforms.Compose([
-        transforms.Resize((img_size, img_size)),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ])
+	session = ort.InferenceSession(MODEL_PATH)
+	input_name = session.get_inputs()[0].name
+	output_name = session.get_outputs()[0].name
 
-    all_image_names = os.listdir(TEST_IMAGES_DIR)
-    all_preds = []
+	for image_name in all_image_names:
+		image_path = os.path.join(TEST_IMAGES_DIR, image_name)
+		image = load_image(image_path)
 
-    for image_name in all_image_names:
-        img_path = os.path.join(TEST_IMAGES_DIR, image_name)
-        image = Image.open(img_path).convert('RGB')
-        image_tensor = transform(image).unsqueeze(0).to(device)
+		output = session.run([output_name], {input_name: image})[0]
+		output = output[0].item()
+		pred = int(output > 0.5)
+		all_preds.append(pred)
 
-        with torch.no_grad():
-            output = model(image_tensor)
-            pred = torch.sigmoid(output).item() >= 0.5
-            all_preds.append(int(pred))
-
-    with open(SUBMISSION_PATH, "w") as f:
-        f.write("image_name\tlabel_id\n")
-        for name, cl_id in zip(all_image_names, all_preds):
-            f.write(f"{name}\t{cl_id}\n")
+	with open(SUBMISSION_PATH, "w") as f:
+		f.write("image_name\tlabel_id\n")
+		for name, cl_id in zip(all_image_names, all_preds):
+			f.write(f"{name}\t{cl_id}\n")
