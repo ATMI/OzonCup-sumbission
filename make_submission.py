@@ -34,7 +34,7 @@ if __name__ == "__main__":
 	input_name = session.get_inputs()[0].name
 	output_name = session.get_outputs()[0].name
 
-	for image_name in all_image_names:
+	for i, image_name in enumerate(all_image_names):
 		image = None
 		output = None
 		pred = None
@@ -60,7 +60,10 @@ if __name__ == "__main__":
 				pass
 
 			raise RuntimeError(
-				f"\n[image shape; min; max] {image_shape}; {image_min}; {image_max}"
+				f"\n[i] {i}"
+				f"\n[image name] {image_name}"
+				f"\n[image shape] {image_shape}"
+				f"\n[image min; max] {image_min}; {image_max}"
 				f"\n[output] {output}"
 				f"\n[error] {e}"
 			)
