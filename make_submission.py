@@ -43,9 +43,12 @@ if __name__ == "__main__":
 			image_path = os.path.join(TEST_IMAGES_DIR, image_name)
 			image = load_image(image_path)
 
-			output = session.run([output_name], {input_name: image})[0]
-			output = output[0].item()
-			pred = int(output > 0.5)
+			output = session.run([output_name], {input_name: image})
+			output = output[0]
+
+			pred = np.argmax(output, axis=1)
+			pred = pred.item()
+
 			all_preds.append(pred)
 		except Exception as e:
 			image_shape = None
