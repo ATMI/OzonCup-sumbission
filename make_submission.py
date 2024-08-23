@@ -46,8 +46,10 @@ if __name__ == "__main__":
 			output = session.run([output_name], {input_name: image})
 			output = output[0]
 
-			pred = np.argmax(output, axis=1)
+			# pred = np.argmax(output, axis=1)
+			pred = output > 0.5
 			pred = pred.item()
+			pred = int(pred)
 
 			all_preds.append(pred)
 		except Exception as e:
