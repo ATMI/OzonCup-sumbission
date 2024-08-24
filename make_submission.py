@@ -12,7 +12,7 @@ MODEL_PATH = "./model.onnx"
 def load_image(path):
 	image = Image.open(path)
 	image = image.convert("RGB")
-	image = image.resize((288, 288), Image.BILINEAR)
+	image = image.resize((384, 384), Image.BILINEAR)
 
 	image = np.array(image, dtype=np.float32)
 	image = image / 255
