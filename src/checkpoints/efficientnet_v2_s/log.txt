@@ -1,0 +1,79 @@
+[Epoch: 49]
+[Train] loss: 0.1176, acc: 97.51, pre: 93.77, rec: 97.07, f1: 95.39
+[Valid] loss: 0.1479, acc: 96.20, pre: 92.01, rec: 96.54, f1: 94.22
+[Epoch: 50]
+[Train] loss: 0.0923, acc: 97.85, pre: 94.27, rec: 97.84, f1: 96.02
+[Valid] loss: 0.1339, acc: 96.64, pre: 93.14, rec: 96.64, f1: 94.86
+[Epoch: 51]
+[Train] loss: 0.0863, acc: 97.95, pre: 94.54, rec: 97.93, f1: 96.20
+[Valid] loss: 0.1335, acc: 97.44, pre: 96.22, rec: 95.78, f1: 96.00
+[Epoch: 52]
+[Train] loss: 0.0743, acc: 98.30, pre: 95.31, rec: 98.46, f1: 96.86
+[Valid] loss: 0.1201, acc: 97.31, pre: 95.19, rec: 96.49, f1: 95.83
+[Epoch: 53]
+[Train] loss: 0.0695, acc: 98.32, pre: 95.44, rec: 98.36, f1: 96.88
+[Valid] loss: 0.1125, acc: 97.62, pre: 95.64, rec: 97.00, f1: 96.31
+[Epoch: 54]
+[Train] loss: 0.0644, acc: 98.47, pre: 95.86, rec: 98.51, f1: 97.16
+[Valid] loss: 0.1086, acc: 97.62, pre: 95.46, rec: 97.20, f1: 96.32
+[Epoch: 55]
+[Train] loss: 0.0588, acc: 98.66, pre: 96.24, rec: 98.81, f1: 97.51
+[Valid] loss: 0.1114, acc: 97.52, pre: 95.26, rec: 97.10, f1: 96.17
+[Epoch: 56]
+[Train] loss: 0.0525, acc: 98.76, pre: 96.62, rec: 98.77, f1: 97.68
+[Valid] loss: 0.1058, acc: 97.75, pre: 95.70, rec: 97.36, f1: 96.52
+[Epoch: 57]
+[Train] loss: 0.0551, acc: 98.69, pre: 96.33, rec: 98.84, f1: 97.57
+[Valid] loss: 0.1019, acc: 97.75, pre: 95.21, rec: 97.92, f1: 96.54
+[Epoch: 58]
+[Train] loss: 0.0486, acc: 98.82, pre: 96.71, rec: 98.93, f1: 97.81
+[Valid] loss: 0.1045, acc: 97.85, pre: 95.67, rec: 97.71, f1: 96.68
+[Epoch: 59]
+[Train] loss: 0.0435, acc: 98.98, pre: 97.13, rec: 99.11, f1: 98.11
+[Valid] loss: 0.1040, acc: 97.74, pre: 95.25, rec: 97.81, f1: 96.51
+[Epoch: 60]
+[Train] loss: 0.0419, acc: 99.02, pre: 97.18, rec: 99.19, f1: 98.18
+[Valid] loss: 0.1051, acc: 97.70, pre: 95.20, rec: 97.76, f1: 96.46
+[Epoch: 61]
+[Train] loss: 0.0404, acc: 99.03, pre: 97.27, rec: 99.12, f1: 98.19
+[Valid] loss: 0.1089, acc: 98.03, pre: 96.90, rec: 96.95, f1: 96.93
+[Epoch: 62]
+[Train] loss: 0.0383, acc: 99.13, pre: 97.57, rec: 99.19, f1: 98.37
+[Valid] loss: 0.1031, acc: 98.03, pre: 96.15, rec: 97.76, f1: 96.95
+[Epoch: 63]
+[Train] loss: 0.0350, acc: 99.20, pre: 97.66, rec: 99.36, f1: 98.50
+[Valid] loss: 0.1015, acc: 97.90, pre: 95.90, rec: 97.61, f1: 96.75
+[Epoch: 64]
+[Train] loss: 0.0342, acc: 99.22, pre: 97.76, rec: 99.35, f1: 98.55
+[Valid] loss: 0.1042, acc: 98.05, pre: 96.57, rec: 97.36, f1: 96.96
+[Epoch: 65]
+[Train] loss: 0.0315, acc: 99.30, pre: 97.95, rec: 99.44, f1: 98.69
+[Valid] loss: 0.1040, acc: 97.72, pre: 95.07, rec: 97.97, f1: 96.49
+[Epoch: 66]
+[Train] loss: 0.0310, acc: 99.27, pre: 97.88, rec: 99.39, f1: 98.63
+[Valid] loss: 0.1031, acc: 98.05, pre: 96.71, rec: 97.20, f1: 96.96
+[Epoch: 67]
+[Train] loss: 0.0295, acc: 99.35, pre: 98.15, rec: 99.41, f1: 98.78
+[Valid] loss: 0.1058, acc: 98.06, pre: 96.57, rec: 97.41, f1: 96.99
+[Epoch: 68]
+[Train] loss: 0.0284, acc: 99.35, pre: 98.22, rec: 99.36, f1: 98.78
+[Valid] loss: 0.1070, acc: 98.01, pre: 96.76, rec: 97.05, f1: 96.90
+[Epoch: 69]
+[Train] loss: 0.0266, acc: 99.38, pre: 98.17, rec: 99.52, f1: 98.84
+[Valid] loss: 0.1009, acc: 98.03, pre: 96.34, rec: 97.56, f1: 96.94
+[Epoch: 70]
+[Train] loss: 0.0257, acc: 99.37, pre: 98.21, rec: 99.44, f1: 98.82
+[Valid] loss: 0.1016, acc: 98.24, pre: 96.92, rec: 97.61, f1: 97.26
+[Epoch: 71]
+[Train] loss: 0.0245, acc: 99.46, pre: 98.43, rec: 99.54, f1: 98.99
+[Valid] loss: 0.1042, acc: 98.09, pre: 96.72, rec: 97.36, f1: 97.04
+[Epoch: 72]
+[Train] loss: 0.0223, acc: 99.53, pre: 98.60, rec: 99.64, f1: 99.12
+[Valid] loss: 0.1089, acc: 98.14, pre: 97.01, rec: 97.20, f1: 97.11
+[Epoch: 73]
+[Train] loss: 0.0218, acc: 99.51, pre: 98.52, rec: 99.64, f1: 99.07
+[Valid] loss: 0.1097, acc: 98.22, pre: 97.01, rec: 97.46, f1: 97.24
+[Epoch: 74]
+[Train] loss: 0.0225, acc: 99.51, pre: 98.68, rec: 99.50, f1: 99.09
+[Valid] loss: 0.1028, acc: 98.13, pre: 96.39, rec: 97.81, f1: 97.10
+[Epoch: 75]
