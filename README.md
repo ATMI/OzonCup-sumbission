@@ -10,17 +10,19 @@
 - палочек для еды
 - стилизованных рисунков
 
-<table style="width: 75%; margin-left: auto; margin-right: auto">
-    <tr>
-        <td><img src="images/chupa_chups.jpg" style="height: 100%;"></td>
-        <td><img src="images/anime_lipstick.jpg" style="height: 100%;"></td>
-        <td><img src="images/anime_finger.jpg" style="height: 100%;"></td>
+<div>
+<table style="width: 75%; margin-left: auto; margin-right: auto; max-height: 600px; max-width: 800px;">
+    <tr style="height: 50%;">
+        <td><img src="images/chupa_chups.jpg" style="height: 100%; width: auto; display: block;"></td>
+        <td><img src="images/anime_lipstick.jpg" style="height: 100%; width: auto; display: block;"></td>
+        <td><img src="images/anime_finger.jpg" style="height: 100%; width: auto; display: block;"></td>
     </tr>
-    <tr>
-        <td colspan="2"><img src="images/pen.jpg" style="height: 100%;"></td>
-        <td><img src="images/pipe.jpg" style="height: 100%;"></td>
+    <tr style="height: 50%;">
+        <td colspan="2"><img src="images/pen.jpg" style="height: 100%; width: auto; display: block;"></td>
+        <td><img src="images/pipe.jpg" style="height: 100%; width: auto; display: block;"></td>
     </tr>
 </table>
+</div>
 
 Поэтому мы решили расширить датасет.
 В негативную выборку были добавлены изображения по запросам:
@@ -54,12 +56,13 @@
 - EfficientNet B4
 - EfficientNet V2 S
 
-Мы остановились на модели <b><i>EfficientNet V2 S</i></b> предобученную на ImageNet,
-так как она показала лучшее соотношение точности и скорости.
-Последний модуль classifier был заменен на Fully-Connected
+Мы остановились на <b>EfficientNet V2 S</b>,
+предобученной на датасете ImageNet,
+так как эта модель показала лучшее соотношение точности и скорости.
+Последний модуль classifier был заменен на fully-connected
 слой с одним выходным нейроном и сигмоидой.
 Натренировали модель на собственном датасете из 60К картинок.
-После мы сконвертировали модель с помощью Onnxruntime,
+После сконвертировали модель с помощью Onnxruntime,
 для удобного запуска на любом языке программирования.
 На локальной машине мы добились результатов обработки одной картинки за 80мс.
 
